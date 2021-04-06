@@ -15,9 +15,11 @@ const connect = function() {
     console.log('Server says: ', data);
   });
 
+  //On connect, inform client and then send name to server
   conn.on('connect', () => {
     console.log('Successfully connected to game server');
     conn.write('Name: ZNK');
+    return;
   });
 
   return conn;
@@ -26,3 +28,8 @@ const connect = function() {
 module.exports = {
   connect
 };
+
+// conn.write('Move: up');
+// setInterval(() => {
+//   conn.write('Move: up');
+// }, 1000);
